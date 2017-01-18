@@ -105,7 +105,7 @@ public class Playground {
 				printWon();
 				return;
 			}
-			if(!hasWar){
+			if(!this.hasWar){
 				this.holdCards[this.cardsNumber++] = this.players[0].getTopCard();
 				this.holdCards[this.cardsNumber++] = this.players[1].getTopCard();
 				clearField();
