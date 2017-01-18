@@ -18,7 +18,7 @@ public class Playground {
 	}
 	
 	public void addPlayer(Player newPlayer){
-		if(currentPlayers >= 2){
+		if(this.currentPlayers >= 2){
 			return;
 		}
 		this.players[this.currentPlayers++] = newPlayer;
@@ -51,17 +51,17 @@ public class Playground {
 		int cmp = compare();
 			if(cmp == 1){
 				for (int i = 0; i < this.holdCards.length; i++) {
-					players[1].winCard(holdCards[i]);
-					holdCards[i] = null;
+					this.players[1].winCard(this.holdCards[i]);
+					this.holdCards[i] = null;
 				}
 			}
 			else{
 				for (int i = 0; i < this.holdCards.length; i++) {
-					players[0].winCard(holdCards[i]);
-					holdCards[i] = null;
+					this.players[0].winCard(this.holdCards[i]);
+					this.holdCards[i] = null;
 				}
 			}
-			hasWar = false;
+			this.hasWar = false;
 			this.cardsNumber = 0;
 	}
 	
@@ -98,23 +98,23 @@ public class Playground {
 			printWon();
 			return;
 		}
-		this.holdCards[cardsNumber++] = players[0].getTopCard();
-		this.holdCards[cardsNumber++] = players[1].getTopCard();
+		this.holdCards[this.cardsNumber++] = this.players[0].getTopCard();
+		this.holdCards[this.cardsNumber++] = this.players[1].getTopCard();
 		if(checkForWar()){
-			if(players[0].hasOneCard() || players[1].hasOneCard()){
+			if(this.players[0].hasOneCard() || this.players[1].hasOneCard()){
 				printWon();
 				return;
 			}
 			if(!hasWar){
-				this.holdCards[cardsNumber++] = players[0].getTopCard();
-				this.holdCards[cardsNumber++] = players[1].getTopCard();
+				this.holdCards[this.cardsNumber++] = this.players[0].getTopCard();
+				this.holdCards[this.cardsNumber++] = this.players[1].getTopCard();
 				clearField();
 			}
 			else{
 				this.hasWar = true;
 				for (int i = 0; i < 3; i++) {
-					this.holdCards[cardsNumber++] = players[0].getTopCard();
-					this.holdCards[cardsNumber++] = players[1].getTopCard();
+					this.holdCards[this.cardsNumber++] = this.players[0].getTopCard();
+					this.holdCards[this.cardsNumber++] = this.players[1].getTopCard();
 				}
 			}
 		}

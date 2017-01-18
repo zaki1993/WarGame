@@ -36,6 +36,6 @@ public class Deck {
 	}
 	
 	public Card getTopCard(){
-		return deck[--cardNumber];
+		return this.deck[--this.cardNumber];
 	}
 }
